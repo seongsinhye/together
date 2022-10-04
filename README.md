@@ -1,5 +1,15 @@
 # ✨ 아울러포인트 프로젝트 
 
+## 💁‍♀️ 개요
+질문의 만족수준과고객의 입장에서 민원 만족도 향상을 설문조사로 손쉽게 활용하고자 설문조사 사이트를 구현했습니다. 
+<br>
+
+## 👩‍💻 개발 과정
+- 1인 개발 ( 성신혜 ) 
+- 기간 : 2021. 08 ~ 2021. 09 
+
+<br>
+
 
 ---
 ### **🛠 기술 스택**
@@ -12,3 +22,5 @@
 | etc |<img src="https://img.shields.io/badge/EC2-FF9900?style=for-the-badge&logo=Amazon&logoColor=white"> |<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white">
 
 ---
+
+## 🧷 핵심 기능
