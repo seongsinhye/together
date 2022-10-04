@@ -17,7 +17,7 @@ import memberDTO.MemberInfo;
 public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		// 회원 로그인 
 		try {
 			String id = request.getParameter("id");
 			String pw = request.getParameter("pw");
@@ -28,9 +28,9 @@ public class Login extends HttpServlet {
 			if(!validator.idValidator(id)) 								throw new BadParameterException();
 			else if(!validator.pwValidator(pw))  						throw new BadParameterException();
 			
-			// 파라미터 검증해야함 
 			
 			
+			// 객체로 저장하기 
 			MemberInfo loginMemberInfo = new MemberInfo();
 			loginMemberInfo.setId(id);
 			loginMemberInfo.setPw(pw);

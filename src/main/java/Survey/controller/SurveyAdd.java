@@ -24,6 +24,7 @@ import exception.BadParameterException;
 public class SurveyAdd extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// 설문조사 등록 + 이미지 등록 
 		try {
 			
 			

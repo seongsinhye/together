@@ -17,7 +17,7 @@ import SurveyService.MngSurveyService;
 public class SurveyAController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// 설문조사 등록시 질문 내역 
 		request.setCharacterEncoding("UTF-8");
 		
 		int questionIdx = Integer.parseInt(request.getParameter("questionIdx"));
@@ -25,12 +25,8 @@ public class SurveyAController extends HttpServlet {
 		int memberIdx = Integer.parseInt(request.getParameter("memberIdx"));
 		String text = request.getParameter("text");
 		
-		// 파라미터 검증
-		
-		// 파라미터 검증 
-		
-		// 정보 저장
 	
+		// 정보 저장
 		MngSurveyService service = new MngSurveyService();
 		
 		int selectedQuestionIdx = service.selectQuestionIdx(questionIdx);

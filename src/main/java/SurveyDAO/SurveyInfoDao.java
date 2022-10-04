@@ -15,7 +15,7 @@ import memberDTO.MemberInfo;
 
 public class SurveyInfoDao {
 	
-	
+	// 멤버 정보 가져오기 
 	public MemberInfo getMemberInfo(int memberIdx) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -53,7 +53,7 @@ public class SurveyInfoDao {
 		
 	}
 	
-	
+	// 설문조사 정보 가져오기 
 	public SurveyInfo getSurveyInfo(int surveyIdx) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -98,6 +98,7 @@ public class SurveyInfoDao {
 		
 	}
 	
+	// 설문조사 정보 개수 가져오기 
 	public int getAmount() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -126,6 +127,7 @@ public class SurveyInfoDao {
 		return amount;
 	}
 	
+	// 설문조사 참여한 숫자 가져오기 
 	public int surveyJoinAmount() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -156,7 +158,7 @@ public class SurveyInfoDao {
 	
 	
 
-	
+	// 설문조사 리스트 가져오기 
 	public List<SurveyInfo> getSurveyInfoList(int start){
 		
 		Connection conn= null;
@@ -199,8 +201,8 @@ public class SurveyInfoDao {
 	}
 	
 	
-	
-		public List<SurveyJoinInfo> surveyJoinList(int mbmerIdx){
+	// 회원이 참가한 설문조사 리스트 가져오기 
+	public List<SurveyJoinInfo> surveyJoinList(int mbmerIdx){
 		
 		Connection conn= null;
 		PreparedStatement pstmt = null;

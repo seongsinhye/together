@@ -18,7 +18,7 @@ import memberDTO.MemberInfo;
 public class Update extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// 회원 정보 수정 
 		try {
 
 			request.setCharacterEncoding("UTF-8");
@@ -46,8 +46,9 @@ public class Update extends HttpServlet {
 			else if(!validator.addrValidator(addr)) 					throw new BadParameterException();
 			else if(!validator.emailValidator(email)) 					throw new BadParameterException();
 			
-			// 파라미터 검증 
 			
+			
+			// 세션에 저장 
 			HttpSession session = request.getSession();
 			MemberInfo loginMemberInfo = (MemberInfo) session.getAttribute("memberInfo");
 			
@@ -76,11 +77,12 @@ public class Update extends HttpServlet {
 			
 			MemberService service = new MemberService();
 			
+			// 수정된 정보 다시 저
 			if(service.update(loginMemberInfo, updateMemberInfo)) {
 				updateMemberInfo.setId(loginMemberInfo.getId());
 				updateMemberInfo.setJoinDate(loginMemberInfo.getJoinDate());
 				
-				
+				// 세션에 저장 
 				session.setAttribute("memberInfo", updateMemberInfo);
 			} else {
 				// 409 

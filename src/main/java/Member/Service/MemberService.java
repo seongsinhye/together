@@ -5,6 +5,7 @@ import memberDTO.MemberInfo;
 
 public class MemberService {
 	
+	// 회원 삭제 
 	public boolean delete(int memberIdx) {
 		
 		MemberInfoDao dao = new MemberInfoDao();
@@ -13,7 +14,7 @@ public class MemberService {
 		
 	}
 	
-	
+	// 회원 수정하기 
 	public boolean update(MemberInfo oldMemberInfo, MemberInfo updateMemberInfo) {
 		
 		MemberInfoDao dao = new MemberInfoDao();
@@ -34,7 +35,7 @@ public class MemberService {
 		return dao.update(updateMemberInfo);
 	}
 	
-	
+	// 회원 로그인 
 	public MemberInfo login(MemberInfo memberInfo) {
 		
 		MemberInfoDao dao = new MemberInfoDao();
@@ -55,7 +56,7 @@ public class MemberService {
 		
 	}
 
-	
+	// 회원 회원가입 
 	public boolean join(MemberInfo memberInfo) {
 		
 		MemberInfoDao dao = new MemberInfoDao();

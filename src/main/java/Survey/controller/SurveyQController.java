@@ -22,6 +22,8 @@ public class SurveyQController extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
+		// 설문조사 질문 등록하기 
 		request.setCharacterEncoding("UTF-8");
 		
 		int surveyIdx = Integer.parseInt(request.getParameter("surveyIdx"));
@@ -30,9 +32,6 @@ public class SurveyQController extends HttpServlet {
 		String question3 = request.getParameter("question3");
 		
 		
-		// 파라미터 검증
-		
-		// 파라미터 검증 
 		
 		QuestionInfo questionInfo = new QuestionInfo();
 		questionInfo.setQuestion1(question1);
@@ -42,7 +41,6 @@ public class SurveyQController extends HttpServlet {
 		
 		
 		// 정보 저장
-	
 		MngSurveyService service = new MngSurveyService();
 		
 		

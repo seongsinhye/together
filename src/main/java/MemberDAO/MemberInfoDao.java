@@ -11,7 +11,7 @@ import memberDTO.MemberInfo;
 
 public class MemberInfoDao {
 	
-	
+	// 회원 삭제 
 	public boolean delete(int memberIdx) {
 		
 		Connection conn = null;
@@ -40,7 +40,7 @@ public class MemberInfoDao {
 		return false;
 	}
 	
-	
+	// 회원 수정 
 	public boolean update(MemberInfo memberInfo) {
 		
 		Connection conn = null;
@@ -74,7 +74,7 @@ public class MemberInfoDao {
 	}
 	
 	
-	
+	// 회원 추가 
 	public boolean insert(MemberInfo memberInfo) {
 		
 		Connection conn = null;
@@ -110,7 +110,8 @@ public class MemberInfoDao {
 		}
 		
 	}
-public MemberInfo selectMemberIdx(int memberIdx) {
+	// 회원 memberIdx 가져오기 
+	public MemberInfo selectMemberIdx(int memberIdx) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -159,6 +160,8 @@ public MemberInfo selectMemberIdx(int memberIdx) {
 		return memberInfo;
 	}
 	
+	
+	// 회원 id 가져오기 (아이디 중복 체크때문에 필요) 
 	public MemberInfo selectId(String id) {
 		
 		Connection conn = null;
@@ -209,6 +212,7 @@ public MemberInfo selectMemberIdx(int memberIdx) {
 	}
 	
 	
+	// 회원 전화번호 가져오기 
 	public MemberInfo seletTel(String tel) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -248,6 +252,7 @@ public MemberInfo selectMemberIdx(int memberIdx) {
 		return memberInfo;
 	}
 	
+	// 회원 이메일 가져오기 
 	public MemberInfo selectEmail(String email) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;

@@ -15,6 +15,7 @@ import memberDTO.MemberInfo;
 public class getPoint extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		// 설문조사 실행시 포인트 올라간다 
 		int surveyIdx = Integer.parseInt(request.getParameter("surveyIdx"));
 		
 		HttpSession session = request.getSession();

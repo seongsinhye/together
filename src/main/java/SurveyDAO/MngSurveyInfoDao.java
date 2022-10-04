@@ -13,6 +13,7 @@ import common.util.DBConn;
 
 public class MngSurveyInfoDao {
 	
+	// 이미지 수정하기 
 	public boolean updateImg(int surveyIdx, String img) {
 		
 		Connection conn = null;
@@ -36,7 +37,7 @@ public class MngSurveyInfoDao {
 		}
 		return false;
 	}
-	
+	// 이미지 삭제시 null 로 넣기 
 	public boolean setImgNull(int surveyIdx) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -59,6 +60,7 @@ public class MngSurveyInfoDao {
 		return false;
 	}
 	
+	// 설문조사 정보 받기 
 	public SurveyInfo getSurveyIdxReturnSurInfo(int surveyIdx) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -103,6 +105,7 @@ public class MngSurveyInfoDao {
 		
 	}
 	
+	// 답변 지우기 
 	public boolean answerDelete(int surveyIdx) {
 		
 		Connection conn = null;
@@ -131,35 +134,7 @@ public class MngSurveyInfoDao {
 		return false;
 	}
 	
-//public boolean questionDelete(int surveyIdx) {
-//		
-//		Connection conn = null;
-//		PreparedStatement pstmt = null;
-//		
-//		try {
-//			
-//			conn = DBConn.getConnection();
-//			
-//			String sql = "DELETE FROM question_Info WHERE surveyIdx = ?";
-//			pstmt = DBConn.getPstmt(conn, sql);
-//			pstmt.setInt(1, surveyIdx);
-//			
-//			pstmt.executeUpdate();
-//			
-//			
-//			return true;
-//			
-//		}catch(SQLException e) {
-//			e.printStackTrace();
-//		}finally {
-//			DBConn.close(conn, pstmt);
-//		}
-//		
-//		
-//		return false;
-//	}
-	
-	
+	// 설문조사 삭제하기 
 	public boolean surveyDelete(int surveyIdx) {
 		
 		Connection conn = null;
@@ -188,6 +163,7 @@ public class MngSurveyInfoDao {
 		return false;
 	}
 	
+	// 설문조사 수정하기 
 	public boolean update(SurveyInfo surveyInfo) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -222,7 +198,7 @@ public class MngSurveyInfoDao {
 	}
 	
 	
-	
+	// memberIdx로 회원 정보 찾기 
 	public int getMemberIdx(int memberIdx) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -260,6 +236,7 @@ public class MngSurveyInfoDao {
 		
 	}
 	
+	// 질문 idx로 질문 정보 가져오기 
 	public int getQuestionIdx(int questionIdx) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -297,7 +274,7 @@ public class MngSurveyInfoDao {
 		
 	}
 	
-	
+	// surveyIdx로 설문조사 정보 가져오기 
 	public int getSurveyIdx(int surveyIdx) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -335,6 +312,7 @@ public class MngSurveyInfoDao {
 		
 	}
 	
+	// 설문조사 추가하면서 오토인클리먼트로 나오는 surveyIdx 가져오기 
 	public int insertAndSelectIdx(SurveyInfo surveyInfo) {
 		
 		Connection conn = null;
@@ -389,8 +367,8 @@ public class MngSurveyInfoDao {
 
 
 		
-
-public boolean questionAdd(int surveyIdx, QuestionInfo questionInfo) {
+	// 질문 추가하기 
+	public boolean questionAdd(int surveyIdx, QuestionInfo questionInfo) {
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -418,71 +396,43 @@ public boolean questionAdd(int surveyIdx, QuestionInfo questionInfo) {
 		
 		
 	}
-public QuestionInfo getQuestionInfo(int surveyIdx) {
-	Connection conn = null;
-	PreparedStatement pstmt = null;
-	ResultSet rs = null;
+	// 질문 정보 가져오기 
+	public QuestionInfo getQuestionInfo(int surveyIdx) {
+			Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		QuestionInfo questionInfo = null;
 	
-	QuestionInfo questionInfo = null;
-
-	try {
-		
-		conn = DBConn.getConnection();
-		
-		String sql = "SELECT * FROM survey_questionAndAnswer WHERE surveyIdx = ?";
-		
-		pstmt = DBConn.getPstmt(conn, sql);
-		pstmt.setInt(1, surveyIdx);
-		
-		rs =  pstmt.executeQuery();
-		
-		rs.next();
-		
-		questionInfo = new QuestionInfo();
-		questionInfo.setSurveyIdx(surveyIdx);
-		questionInfo.setQuestion1(rs.getString("question1"));
-		questionInfo.setQuestion2(rs.getString("question2"));
-		questionInfo.setQuestion3(rs.getString("question3"));
-		
-	}catch(SQLException e) {
-		e.printStackTrace();
-	} finally {
-		DBConn.close(conn, pstmt, rs);
-	}
-	
-	return questionInfo;
-		
+		try {
+			
+			conn = DBConn.getConnection();
+			
+			String sql = "SELECT * FROM survey_questionAndAnswer WHERE surveyIdx = ?";
+			
+			pstmt = DBConn.getPstmt(conn, sql);
+			pstmt.setInt(1, surveyIdx);
+			
+			rs =  pstmt.executeQuery();
+			
+			rs.next();
+			
+			questionInfo = new QuestionInfo();
+			questionInfo.setSurveyIdx(surveyIdx);
+			questionInfo.setQuestion1(rs.getString("question1"));
+			questionInfo.setQuestion2(rs.getString("question2"));
+			questionInfo.setQuestion3(rs.getString("question3"));
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBConn.close(conn, pstmt, rs);
+		}
+				
+				return questionInfo;
+				
 	
 	
 	
 }
-//public boolean answerAdd(AnswerInfo answerInfo) {
-//	
-//	Connection conn = null;
-//	PreparedStatement pstmt = null;
-//	
-//	try {
-//		conn = DBConn.getConnection();
-//		
-//		String sql = "INSERT INTO answer_Info (questionIdx, surveyIdx, memberIdx, answerIdx, text) VALUES(?, ?, ?, ?, ?)";
-//		
-//		pstmt = DBConn.getPstmt(conn, sql);
-//		pstmt.setInt(1, answerInfo.getQuestionIdx());
-//		pstmt.setInt(2, answerInfo.getSurvetIdx());
-//		pstmt.setInt(3, answerInfo.getMemberIdx());
-//		pstmt.setInt(4, answerInfo.getAnswerIdx());
-//		pstmt.setString(5, answerInfo.getText());
-//		
-//		pstmt.executeUpdate();
-//		
-//		return true;
-//	}catch(SQLException e) {
-//		e.printStackTrace();
-//		return false;
-//	}finally {
-//		DBConn.close(conn, pstmt);
-//	}
-//	
-//	
-//}
 }

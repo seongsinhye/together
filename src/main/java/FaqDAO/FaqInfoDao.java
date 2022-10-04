@@ -13,6 +13,7 @@ import common.util.DBConn;
 
 public class FaqInfoDao {
 	
+	// faq 정보 
 	public FaqInfo getFaqInfo(int faqIdx) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -51,7 +52,7 @@ public class FaqInfoDao {
 		
 	}
 	
-	
+	// faq 삭제하기 
 	public boolean faqDelete(int faqIdx) {
 		
 		Connection conn = null;
@@ -79,6 +80,8 @@ public class FaqInfoDao {
 		
 		return false;
 	}
+	
+	// faq 수정하기 
 	public boolean updateFaq(int faqIdx, FaqInfo faqInfo) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -106,63 +109,64 @@ public class FaqInfoDao {
 		
 	}
 	
-	public boolean answerQPerson(int questionPersonIdx, String answerStatus, String answerText) {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		
-		try {
-			
-			conn = DBConn.getConnection();
-			
-			String sql = "UPDATE questionInPerson SET answerStatus = ?, answerText = ? WHERE questionPersonIdx = ?";
-			
-			pstmt = DBConn.getPstmt(conn, sql);
-			pstmt.setString(1, answerStatus);
-			pstmt.setString(2, answerText);
-			pstmt.setInt(3, questionPersonIdx);
-			
-			pstmt.executeUpdate();
-		
-			return true;
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-			DBConn.close(conn, pstmt);
-		}
-		return false;
-		
-	}
-	
-	
-	public boolean addQPerson(QuestionPersonInfo qpi) {
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		
-		try {
-			
-			conn =DBConn.getConnection();
-			
-			String sql = "INSERT INTO questionInPerson(memberIdx, questionText, answerStatus, questionDate) VALUES(?, ?, ?, ?)";
-			
-			pstmt = DBConn.getPstmt(conn, sql);
-			pstmt.setInt(1, qpi.getMemberIdx());
-			pstmt.setString(2, qpi.getQuestionText());
-			pstmt.setString(3, qpi.getAnswerStatus());
-			pstmt.setString(4, qpi.getQuestionDate().toString());
-			
-			pstmt.executeUpdate();
-			
-			return true;
-		}catch(SQLException e) {
-			e.printStackTrace();
-		}finally {
-			DBConn.close(conn, pstmt);
-		}
-		return false;
-	}
+//	
+//	public boolean answerQPerson(int questionPersonIdx, String answerStatus, String answerText) {
+//		Connection conn = null;
+//		PreparedStatement pstmt = null;
+//		
+//		try {
+//			
+//			conn = DBConn.getConnection();
+//			
+//			String sql = "UPDATE questionInPerson SET answerStatus = ?, answerText = ? WHERE questionPersonIdx = ?";
+//			
+//			pstmt = DBConn.getPstmt(conn, sql);
+//			pstmt.setString(1, answerStatus);
+//			pstmt.setString(2, answerText);
+//			pstmt.setInt(3, questionPersonIdx);
+//			
+//			pstmt.executeUpdate();
+//		
+//			return true;
+//		}catch(SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			DBConn.close(conn, pstmt);
+//		}
+//		return false;
+//		
+//	}
+//	
+//	
+//	public boolean addQPerson(QuestionPersonInfo qpi) {
+//		
+//		Connection conn = null;
+//		PreparedStatement pstmt = null;
+//		
+//		try {
+//			
+//			conn =DBConn.getConnection();
+//			
+//			String sql = "INSERT INTO questionInPerson(memberIdx, questionText, answerStatus, questionDate) VALUES(?, ?, ?, ?)";
+//			
+//			pstmt = DBConn.getPstmt(conn, sql);
+//			pstmt.setInt(1, qpi.getMemberIdx());
+//			pstmt.setString(2, qpi.getQuestionText());
+//			pstmt.setString(3, qpi.getAnswerStatus());
+//			pstmt.setString(4, qpi.getQuestionDate().toString());
+//			
+//			pstmt.executeUpdate();
+//			
+//			return true;
+//		}catch(SQLException e) {
+//			e.printStackTrace();
+//		}finally {
+//			DBConn.close(conn, pstmt);
+//		}
+//		return false;
+//	}
 
-	
+	// faq 추가하기 
 	public boolean addFaq(FaqInfo faqInfo) {
 		
 		Connection conn = null;
@@ -193,6 +197,7 @@ public class FaqInfoDao {
 		}
 	}
 	
+	// faq 총 개수 가져오기 
 	public int getFaqAmount() {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -220,6 +225,8 @@ public class FaqInfoDao {
 		}
 		return amount;
 	}
+	
+	// faq 리스트로 가져오기 
 	public List<FaqInfo> getFaqInfoList(int start){
 		
 		Connection conn= null;

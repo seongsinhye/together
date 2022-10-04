@@ -22,7 +22,7 @@ public class AdminnFaqList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		// faq 리스트 
 		try {
 			
 				int pageNumber = 1;

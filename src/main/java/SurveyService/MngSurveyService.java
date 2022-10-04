@@ -9,12 +9,14 @@ import SurveyDTO.SurveyInfo;
 
 public class MngSurveyService {
 	
+	// 이미지 추가힉 
 	public boolean addImg(int surveyIdx, String img) {
 		MngSurveyInfoDao dao = new MngSurveyInfoDao();
 		
 		return dao.updateImg(surveyIdx, img);
 	}
 	
+	// 이미지 삭제하기 
 	public boolean deleteImg(int surveyIdx, String realPath) {
 		MngSurveyInfoDao dao = new MngSurveyInfoDao();
 		
@@ -26,6 +28,7 @@ public class MngSurveyService {
 		
 		
 		if(file.delete()) {
+			// 이미지 삭제시 null로 바꾸기 
 			dao.setImgNull(surveyIdx);
 			return true;
 		}else {
@@ -34,6 +37,7 @@ public class MngSurveyService {
 		
 	}
 	
+	// 질문과 답변 지우기 
 	public boolean questionAndAnswerDelete(int surveyIdx) {
 		
 		MngSurveyInfoDao dao = new MngSurveyInfoDao();
@@ -53,6 +57,7 @@ public class MngSurveyService {
 //		
 //	}
 	
+	// 설문조사 삭제하기 
 	public boolean surveyDelete(int surveyIdx, String realPath) {
 		
 		MngSurveyInfoDao dao = new MngSurveyInfoDao();
@@ -76,7 +81,7 @@ public class MngSurveyService {
 		 return true;
 	}
 	
-	
+	// 설문조사 수정하기 
 	public boolean update(SurveyInfo updateSurveyInfo) {
 		
 		MngSurveyInfoDao dao = new MngSurveyInfoDao();
@@ -85,6 +90,7 @@ public class MngSurveyService {
 		
 	}
 
+	// 설문조사 추가하기 
 	public int insert(SurveyInfo newSurveyInfo) {
 		
 		MngSurveyInfoDao dao = new MngSurveyInfoDao();
@@ -95,15 +101,9 @@ public class MngSurveyService {
 	}
 	
 	
-//	public int selecedSurveyIdx(SurveyInfo newSurveyInfo) {
-//		MngSurveyInfoDao dao = new MngSurveyInfoDao();
-//		
-//		int surveyIdx = dao.insertAndGetSurveyIdx(newSurveyInfo);
-//		
-//		return surveyIdx;
-//	}
 
-	
+
+	// 설문조사 idx가져오기 
 	public int selectSurveyIdx(int surveyIdx) {
 		
 		MngSurveyInfoDao dao = new MngSurveyInfoDao();
@@ -114,6 +114,7 @@ public class MngSurveyService {
 		
 		
 	}
+	// 질문 idx 가져오기 
 	public int selectQuestionIdx(int questionIdx) {
 		
 		MngSurveyInfoDao dao = new MngSurveyInfoDao();
@@ -124,6 +125,7 @@ public class MngSurveyService {
 		
 		
 	}
+	// 회원 idx 가져오기 
 	public int selectMemberIdx(int memberIdx) {
 		
 		MngSurveyInfoDao dao = new MngSurveyInfoDao();
@@ -135,21 +137,18 @@ public class MngSurveyService {
 		
 	}
 	
+	// 질문 추가하기 
 	public boolean questionAdd(int surveyIdx,  QuestionInfo questionInfo) {
 		MngSurveyInfoDao dao = new MngSurveyInfoDao();
 		
 		return dao.questionAdd(surveyIdx,questionInfo);
 	}
-	
+	// 질문 가져오기 
 	public QuestionInfo getQuestion(int surveyIdx) {
 		MngSurveyInfoDao dao = new MngSurveyInfoDao();
 		
 		return dao.getQuestionInfo(surveyIdx);
 
 	}
-//	public boolean answerAdd(AnswerInfo newAnswerInfo) {
-//		MngSurveyInfoDao dao = new MngSurveyInfoDao();
-//		
-//		return dao.answerAdd(newAnswerInfo);
-//	}
+
 }

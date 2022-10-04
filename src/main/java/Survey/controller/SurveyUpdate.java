@@ -17,6 +17,7 @@ import exception.BadParameterException;
 public class SurveyUpdate extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
+		// 설문조사 수정하기 
 		try {
 			request.setCharacterEncoding("UTF-8");
 			

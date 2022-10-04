@@ -17,6 +17,7 @@ public class Delete extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// 세션에 로그인된 정보를 삭제한다 
+		// 회원 삭제하기 
 		HttpSession session = request.getSession();
 		
 		MemberInfo loginMemberInfo = (MemberInfo) session.getAttribute("memberInfo");

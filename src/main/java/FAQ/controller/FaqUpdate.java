@@ -17,6 +17,7 @@ import FaqService.FaqService;
 public class FaqUpdate extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		// faq 수정하기 
 		request.setCharacterEncoding("UTF-8");
 		
 		int faqIdx = Integer.parseInt(request.getParameter("faqIdx"));

@@ -22,6 +22,7 @@ public class ViewFaqList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// faq 뷰 페이지에 보여주기 
 		
 			int pageNumber = 1;
 			// 페이지 번호에 맞는 상품 목록을 불러온다 

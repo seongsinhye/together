@@ -21,9 +21,10 @@ public class AdminSurveyList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		// 관리자 설문조사 리스트 보여주기 
 		try {
 			
+		 // 페이지 네이션을 위해서 pageNumber 설정 
 				int pageNumber = 1;
 				if(request.getParameter("pageNumber") != null) {
 					pageNumber = Integer.parseInt(request.getParameter("pageNumber")); 

@@ -12,6 +12,7 @@ import memberDTO.MemberInfo;
 
 public class ExecuteDao {
 	
+	// 포인트 추가 dao 
 	public boolean addPoint(int point, int memberIdx) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -40,6 +41,7 @@ public class ExecuteDao {
 	}
 	
 	
+	// 포인트 가져오기 
 	public int getPoint(int surveyIdx) {
 		
 		Connection conn = null;
@@ -73,8 +75,8 @@ public class ExecuteDao {
 	}
 
 	
+	// 설문조사 실행시 내역에 추가하기 
 	public boolean execute(int memberIdx, ExecuteInfo executeInfo) {
-		
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;

@@ -24,8 +24,9 @@ public class SurveyList extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		// 설문조사 목록페이지 
 		try {
+			// 페이지 네이션 때문에 pageNumber 초기화 
 			int pageNumber = 1;
 			if(request.getParameter("pageNumber") != null) {
 				pageNumber = Integer.parseInt(request.getParameter("pageNumber")); 

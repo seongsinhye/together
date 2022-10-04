@@ -15,6 +15,7 @@ import memberDTO.MemberInfo;
 
 public class SurveyService {
 	
+	// 회원 정보 가져오기 
 	public MemberInfo getMemberInfo(int memberIdx) {
 		
 		SurveyInfoDao dao = new SurveyInfoDao();
@@ -26,7 +27,7 @@ public class SurveyService {
 	}
 	
 	
-	
+	// 설문조사 정보 가져오기 
 	public SurveyInfo surveyInfo(int surveyIdx) {
 		
 		SurveyInfoDao dao = new SurveyInfoDao();
@@ -37,6 +38,7 @@ public class SurveyService {
 		return surveyInfo;
 	}
 	
+	// 설문조사 수 가져오기 
 	public int getAmount() {
 		SurveyInfoDao dao = new SurveyInfoDao();
 		
@@ -46,6 +48,7 @@ public class SurveyService {
 		return amount;
 	}
 	
+	// 설문조사 실행한 수 가져오기 
 	public int surveyJoinAmount() {
 		SurveyInfoDao dao = new SurveyInfoDao();
 		
@@ -57,7 +60,7 @@ public class SurveyService {
 	
 
  
-	
+	// 설문조사 리스트에 페이지네이션이 필요해서 리스트 가져오기 
 	public List<SurveyInfo> getSurvetInfoList(int pageNumber) {
 		pageNumber = (pageNumber - 1) * 8;
 		
@@ -70,6 +73,7 @@ public class SurveyService {
 		
 	}
 	
+	// 회원 마이페이지에서 설문조사 리스트 가져오기 
 	public List<SurveyJoinInfo> surveyJoinList(int memberIdx) {
 		//pageNumber = (pageNumber - 1) * 8;
 		

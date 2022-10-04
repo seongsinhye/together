@@ -14,6 +14,7 @@ import SurveyService.MngSurveyService;
 public class faqDelete extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		//faq  삭제하기 
 		int faqIdx = Integer.parseInt(request.getParameter("faqIdx"));
 		
 		FaqService service = new FaqService();

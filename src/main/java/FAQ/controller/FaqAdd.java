@@ -16,6 +16,7 @@ import faqDTO.FaqInfo;
 public class FaqAdd extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		// faq 추가하기 
 		request.setCharacterEncoding("UTF-8");
 		
 		String title = request.getParameter("title");

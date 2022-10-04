@@ -9,6 +9,7 @@ import faqDTO.QuestionPersonInfo;
 
 public class FaqService {
 	
+	// faq 정보 가져오기 
 	public FaqInfo getFaqInfo(int faqIdx) {
 		FaqInfoDao dao = new FaqInfoDao();
 		
@@ -17,6 +18,7 @@ public class FaqService {
 		return faqInfo;
 	}
 	
+	// faq 삭제하기 
 	public boolean deleteFaq(int faqIdx) {
 		FaqInfoDao dao = new FaqInfoDao();
 		
@@ -24,6 +26,7 @@ public class FaqService {
 		return dao.faqDelete(faqIdx);
 	}
 	
+	// faq 총 개수 가져오기 
 	public int getFaqAmount() {
 		FaqInfoDao dao = new FaqInfoDao();
 		
@@ -33,6 +36,7 @@ public class FaqService {
 		return amount;
 	}
 	
+	// faq List로 가져오기 
 	public List<FaqInfo> getFaqInfoList(int pageNumber) {
 		pageNumber = (pageNumber - 1) * 8;
 		
@@ -45,33 +49,35 @@ public class FaqService {
 		
 	}
 	
+	
 	public boolean updateQPerson(int faqIdx, FaqInfo faqInfo) {
 		FaqInfoDao dao = new FaqInfoDao();
 
 		return dao.updateFaq(faqIdx, faqInfo);
 		
 	}
+//	
+//	public boolean answerQPerson(int questionPersonIdx, String answerStatus, String answerText) {
+//		
+//		FaqInfoDao dao = new FaqInfoDao();
+//		
+//		return dao.answerQPerson(questionPersonIdx, answerStatus, answerText);
+//		
+//	}
+//
+//	public boolean addQPerson(QuestionPersonInfo qpi) {
+//		
+//		FaqInfoDao dao = new FaqInfoDao();
+//		
+//		
+//		// 답변 상태 jsp로 0일때 답변대기 1로 바꿔서 답변 완료로 바꾸기 
+//		
+//		return dao.addQPerson(qpi);
+//		
+//		
+//	}
 	
-	public boolean answerQPerson(int questionPersonIdx, String answerStatus, String answerText) {
-		
-		FaqInfoDao dao = new FaqInfoDao();
-		
-		return dao.answerQPerson(questionPersonIdx, answerStatus, answerText);
-		
-	}
-
-	public boolean addQPerson(QuestionPersonInfo qpi) {
-		
-		FaqInfoDao dao = new FaqInfoDao();
-		
-		
-		// 답변 상태 jsp로 0일때 답변대기 1로 바꿔서 답변 완료로 바꾸기 
-		
-		return dao.addQPerson(qpi);
-		
-		
-	}
-	
+	// faq 추가하기 
 	public boolean addFaq(FaqInfo faqInfo) {
 		
 		FaqInfoDao dao = new FaqInfoDao();

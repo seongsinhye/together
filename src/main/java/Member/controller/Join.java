@@ -21,6 +21,7 @@ public class Join extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// 회원 가입 
 		try {
 
 			request.setCharacterEncoding("UTF-8");

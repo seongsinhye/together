@@ -21,6 +21,7 @@ import SurveyService.SurveyService;
 public class SurveyDetail extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		// 설문조사 상세페이지 
 		int surveyIdx = Integer.parseInt(request.getParameter("surveyIdx"));
 		
 		

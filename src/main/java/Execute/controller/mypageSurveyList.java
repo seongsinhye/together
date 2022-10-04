@@ -27,15 +27,19 @@ import memberDTO.MemberInfo;
 public class mypageSurveyList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		
+		
+		// 회원 페이지 이동할때 
 		try {
 			int pageNumber = 1;
 			if(request.getParameter("pageNumber") != null) {
 				pageNumber = Integer.parseInt(request.getParameter("pageNumber")); 
 			}
 			
+			// 회원 이름 필요해서 idx 가져오기 
 			int memberIdx = Integer.parseInt(request.getParameter("memberIdx"));
 		
-			
+			// 입력과 검증 
 			SurveyInfoValidator validator = new SurveyInfoValidator();
 			
 			if(!validator.pageNumberValidator(pageNumber)) 		throw new BadParameterException();
@@ -47,7 +51,7 @@ public class mypageSurveyList extends HttpServlet {
 			// 회원에 맞춰서 surveyInfo 가져와야함 
 			List<SurveyJoinInfo> surveyJoinInfoList = service.surveyJoinList(memberIdx);
 			
-			System.out.println("surveyJoinInfoList = " + surveyJoinInfoList);
+			
 			
 			List<Integer> getPointList = new ArrayList<>();
 
@@ -58,7 +62,7 @@ public class mypageSurveyList extends HttpServlet {
 			if(surveyJoinInfoList != null) {
 				for(SurveyJoinInfo nth : surveyJoinInfoList) {
 					
-				
+					// 설문조사 이름과 포인트 필요해서 surveyIdx 가져옴 
 					int surveyIdx = nth.getSurveyIdx();
 					
 					surveyInfo = service.surveyInfo(surveyIdx);
@@ -76,6 +80,7 @@ public class mypageSurveyList extends HttpServlet {
 			memberInfo = service.getMemberInfo(memberIdx);
 			
 			
+			// 뷰에 전달 
 			request.setAttribute("amount", amount);
 			request.setAttribute("surveyJoinInfoList", amount == 0 ? null : surveyJoinInfoList);
 			request.setAttribute("memberInfo", memberInfo);

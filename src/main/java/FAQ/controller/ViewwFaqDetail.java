@@ -16,6 +16,7 @@ import faqDTO.FaqInfo;
 public class ViewwFaqDetail extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// faq 관리자가 작성하고 상세로 보이기 
 		int faqIdx = Integer.parseInt(request.getParameter("faqIdx"));
 		
 		FaqService service = new FaqService();
