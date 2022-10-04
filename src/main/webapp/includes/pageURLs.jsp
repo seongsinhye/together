@@ -14,7 +14,7 @@
 <c:set var="loginPage" value="/survey/member/login.jsp" />
 <c:set var="joinPage" value="/survey/member/join.jsp" />
 <c:set var="logout" value="/survey/member/logout" />
-<c:set var="myPage" value="/survey/mypage/list" />
+<c:set var="myPage" value="/survey/mypage/list?memberIdx=${memberInfo.memberIdx }" />
 <c:set var="adminPage" value="/survey/operate/list" />
 
 

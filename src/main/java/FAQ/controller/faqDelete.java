@@ -21,7 +21,7 @@ public class faqDelete extends HttpServlet {
 		service.deleteFaq(faqIdx);
 
 		
-		response.sendRedirect("http://localhost/survey/faq/list");
+		response.sendRedirect("http://localhost:8083/survey/faq/list");
 	}
 
 }

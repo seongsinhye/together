@@ -60,10 +60,10 @@
 				<!-- Title -->
 				<h2 class="mb-3">FAQ 작성하기</h2>
 	
-			 <c:set var="action" value="http://localhost/survey/faq/add"/>
+			 <c:set var="action" value="http://localhost:8083/survey/faq/add"/>
 			 
          		 <c:if test="${param.page == 'faq_update' }">
-                  	<c:set  var="action" value="http://localhost/survey/faq/update?page=faq_update"/>
+                  	<c:set  var="action" value="http://localhost:8083/survey/faq/update?page=faq_update"/>
                   </c:if>
 	
 			<form class="row g-3" action="${action }" method="POST" >
@@ -120,7 +120,7 @@
 						 <c:if test="${param.page == 'faq-add' }">
 						 
 						 <button type="submit" class="btn btn-primary mb-0" id="join-btn">등록하기</button>
-						<button type="submit" class="btn btn-success mb-0" id="list-btn">목록으로</button>
+						<button type="button" class="btn btn-success mb-0" id="list-btn">목록으로</button>
                   		</c:if>
 					
 					
@@ -179,7 +179,7 @@
 
 	
 	$("#list-btn").on("click",function(){
-		location.href="http://localhost/survey/faq/list"
+		location.href="http://localhost:8083/survey/faq/list"
 	});
 	
 	

@@ -13,7 +13,7 @@ public class SurveyJoinInfo {
 	
 	
 	public SurveyJoinInfo(int surveyIdx, LocalDateTime joinDate, int point) {
-		super();
+		
 		this.surveyIdx = surveyIdx;
 		this.joinDate = joinDate;
 		this.point = point;

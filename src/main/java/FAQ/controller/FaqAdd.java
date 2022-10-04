@@ -32,7 +32,7 @@ public class FaqAdd extends HttpServlet {
 		
 		service.addFaq(faqInfo);
 		
-		response.sendRedirect("http://localhost/survey/faq/list");
+		response.sendRedirect("http://localhost:8083/survey/faq/list");
 	
 	}
 

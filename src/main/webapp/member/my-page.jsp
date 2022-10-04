@@ -130,7 +130,7 @@ Page content START -->
 									<a class="list-group-item active" href="#"><i class="bi bi-basket fa-fw me-2"></i>My Courses</a>
 									<a class="list-group-item" href="#"><i class="far fa-fw fa-file-alt me-2"></i>1:1 문의 </a>
 									
-									<a class="list-group-item" href="http://localhost/survey/member/member-edit-profile.jsp"><i class="bi bi-pencil-square fa-fw me-2"></i>회원 정보 수정</a>
+									<a class="list-group-item" href="/survey/member/member-edit-profile.jsp"><i class="bi bi-pencil-square fa-fw me-2"></i>회원 정보 수정</a>
 							
 									<a class="list-group-item" id="delete-btn"><i class="bi bi-trash fa-fw me-2"></i>회원 탈퇴</a>
 								</div>
@@ -171,6 +171,25 @@ Page content START -->
 								<!-- Table body START -->
 								<tbody>
 								
+								<c:if test="${empty surveyJoinInfoList }">
+									<tr>
+										<!-- Table data -->
+										<td>
+										
+										
+											<div class="d-flex align-items-center">
+												
+												<div class="mb-0 ms-2">
+													<!-- Title -->
+													<h6 class="table-responsive-title">현재 참여한 설문조사가 없습니다. <h6>
+													
+												</div>
+											</div>
+										</td>
+								
+								</c:if>
+								
+								
 								
 								
 								
@@ -186,14 +205,19 @@ Page content START -->
 												
 												<div class="mb-0 ms-2">
 													<!-- Title -->
-													<h6 class="table-responsive-title"><a href="#">${surveyJoinInfoList.surveyIdx }</a></h6>
+													<h6 class="table-responsive-title"><a href="#">${surveyInfo.surveyTitle }</a></h6>
 													
 												</div>
 											</div>
 										</td>
 
-										<!-- Table data -->
-										<td>56</td>
+										<!-- Table point -->
+										<td><br>
+                                            
+											<p>${surveyInfo.point }</p>
+										
+											
+										</td>
 
 										
 
@@ -221,7 +245,7 @@ Page content START -->
 							<nav class="d-flex justify-content-center mb-0" aria-label="navigation" style="margin: 0 auto;">
 								<ul class="pagination pagination-sm pagination-primary-soft d-inline-block d-md-flex rounded mb-0">
 									<c:forEach begin="1" end="${end }" var="number">
-												<li class="page-item mb-0"><a class="page-link" href="http://localhost/survey/mypage/list?pageNumber=${number }">${number }</a></li>
+												<li class="page-item mb-0"><a class="page-link" href="http://localhost:8083/survey/mypage/list?pageNumber=${number }">${number }</a></li>
 			
 									</c:forEach>
 								</ul>
@@ -268,20 +292,14 @@ Page content END -->
   			type:"POST",
   			success: function(){
   				alert("회원 탈퇴가 성공적으로 이뤄졌습니다.")
-  				location.href="http://localhost/survey/member/index.jsp"
+  				location.href="http://localhost:8083/survey/member/index.jsp"
   			},
   			error: function(){
   				alert("회원 탈퇴에서 오류가 발생했습니다. ")
   			}
   		});
   	});
-  	
-	$("#logout-btn").on("click", function(){
-  		location.href="http://localhost/survey/member/logout";
-  	});
-  	$("#my-page").on("click",function(){
-  		location.href="http://localhost/survey/member/my-page.jsp";
-  	});
+
  
   
   </script>

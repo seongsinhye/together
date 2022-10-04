@@ -115,15 +115,7 @@
 								<!-- Social btn -->
 								
 								
-								   <div class="button-login" align ="center" >
-               							 <a id="kakao-login-btn" >
-   										 <img src="../assets/images/kakaotalk_login.png" />
-									    </a>
-									    
-									    <a id="naverIdLogin_loginButton" href="javascript:void(0)">
-								      	<img src="../assets/images/btnG_naverLogin.png" style="height: 70px;">
-								      </a>
-									</div>
+							
 									
 										<div>
 								    
@@ -210,8 +202,11 @@ $("#kakao-login-btn").on("click", function(){
               console.log(res);
               var id = res.id;
 			  scope : 'account_email';
+              
+              
+              
 			alert('로그인성공');
-              location.href="http://localhost/survey/member/index.jsp";
+              location.href="http://localhost:8083/survey/member/join";
 		
 
               

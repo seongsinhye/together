@@ -11,16 +11,17 @@ import SurveyDAO.SurveyInfoDao;
 import SurveyDTO.SurveyInfo;
 import SurveyDTO.SurveyJoinInfo;
 import faqDTO.FaqInfo;
+import memberDTO.MemberInfo;
 
 public class SurveyService {
 	
-	public int getPoint(int memberIdx) {
+	public MemberInfo getMemberInfo(int memberIdx) {
 		
 		SurveyInfoDao dao = new SurveyInfoDao();
 		
-		int point = dao.getPoint(memberIdx);
+		MemberInfo memberInfo = dao.getMemberInfo(memberIdx);
 		
-		return point;
+		return memberInfo;
 		
 	}
 	
@@ -69,13 +70,13 @@ public class SurveyService {
 		
 	}
 	
-	public List<SurveyJoinInfo> surveyJoinList(int pageNumber) {
-		pageNumber = (pageNumber - 1) * 8;
+	public List<SurveyJoinInfo> surveyJoinList(int memberIdx) {
+		//pageNumber = (pageNumber - 1) * 8;
 		
 		SurveyInfoDao dao = new SurveyInfoDao();
 		
 		// DAO 통해서 페이지 번호에 맞는 설문조사를 가져옴 
-		List<SurveyJoinInfo> surveyInfoList = dao.surveyJoinList(pageNumber);
+		List<SurveyJoinInfo> surveyInfoList = dao.surveyJoinList(memberIdx);
 		
 		return surveyInfoList;
 		

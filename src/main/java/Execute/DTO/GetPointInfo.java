@@ -8,14 +8,21 @@ public class GetPointInfo {
 	private int memberIdx;
 	private int surveyIdx;
 	private int getPoint;
+	private String surveyTitle;
 	private LocalDateTime getPointDate;
 	
 	
-	public GetPointInfo(int pointNumber, int memberIdx, int surveyIdx, int getPoint, LocalDateTime getPointDate) {
+
+
+
+	public GetPointInfo(int pointNumber, int memberIdx, int surveyIdx, int getPoint, String surveyTitle,
+			LocalDateTime getPointDate) {
+		super();
 		this.pointNumber = pointNumber;
 		this.memberIdx = memberIdx;
 		this.surveyIdx = surveyIdx;
 		this.getPoint = getPoint;
+		this.surveyTitle = surveyTitle;
 		this.getPointDate = getPointDate;
 	}
 
@@ -68,7 +75,15 @@ public class GetPointInfo {
 	public void setGetPointDate(LocalDateTime getPointDate) {
 		this.getPointDate = getPointDate;
 	}
-	
+	public String getSurveyTitle() {
+		return surveyTitle;
+	}
+
+
+	public void setSurveyTitle(String surveyTitle) {
+		this.surveyTitle = surveyTitle;
+	}
+
 	
 	
 	

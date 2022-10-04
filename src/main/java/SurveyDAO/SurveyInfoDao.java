@@ -16,18 +16,18 @@ import memberDTO.MemberInfo;
 public class SurveyInfoDao {
 	
 	
-	public int getPoint(int memberIdx) {
+	public MemberInfo getMemberInfo(int memberIdx) {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		int point = 0;
+		MemberInfo memberInfo = null;
 		
 		try {
 			
 			conn = DBConn.getConnection();
 			
-			String sql = "SELECT point FROM member_Info WHERE memberIdx = ? ";
+			String sql = "SELECT * FROM member_Info WHERE memberIdx = ? ";
 			
 			pstmt = DBConn.getPstmt(conn, sql);
 			pstmt.setInt(1, memberIdx);
@@ -36,7 +36,8 @@ public class SurveyInfoDao {
 			
 			rs.next();
 			
-			MemberInfo memberInfo = new MemberInfo();
+			memberInfo = new MemberInfo();
+			memberInfo.setName(rs.getString("name"));
 			memberInfo.setPoint(rs.getInt("point"));
 			
 			
@@ -47,7 +48,7 @@ public class SurveyInfoDao {
 			DBConn.close(conn, pstmt);
 		}
 		
-		return point;
+		return memberInfo;
 		
 		
 	}
@@ -197,7 +198,9 @@ public class SurveyInfoDao {
 		return surveyInfoList;
 	}
 	
-		public List<SurveyJoinInfo> surveyJoinList(int start){
+	
+	
+		public List<SurveyJoinInfo> surveyJoinList(int mbmerIdx){
 		
 		Connection conn= null;
 		PreparedStatement pstmt = null;
@@ -208,10 +211,11 @@ public class SurveyInfoDao {
 		try {
 			conn = DBConn.getConnection();
 			
-			String sql = "SELECT * FROM survey_Join ORDER BY joinDate DESC LIMIT ?, 8";
+			String sql = "SELECT * FROM survey_Join WHERE memberIdx = ?";
 
 			pstmt = DBConn.getPstmt(conn, sql);
-			pstmt.setInt(1, start);
+			pstmt.setInt(1, mbmerIdx);
+			
 		
 			
 			rs = pstmt.executeQuery();
@@ -220,7 +224,7 @@ public class SurveyInfoDao {
 				SurveyJoinInfo nth = new SurveyJoinInfo();
 				nth.setSurveyIdx(rs.getInt("surveyIdx"));
 				nth.setJoinDate(rs.getTimestamp("joinDate").toLocalDateTime());
-				nth.setPoint(rs.getInt("point"));
+			
 				
 			
 				surveyJoinInfoList.add(nth);
