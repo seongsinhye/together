@@ -31,3 +31,9 @@
 
 2. 관리자 로그인, 설문조사 등록
 <p align="center"><img src="https://user-images.githubusercontent.com/107236098/193736279-7a0b8151-5035-4fce-a69b-9aea9b29bb76.gif"> </p>
+<br>
+<p align="center"><img src="https://user-images.githubusercontent.com/107236098/193737224-9bbd8290-4dcb-41fd-9bdb-d28237ac699b.gif"> </p>
+
+3. FAQ 작성, 수정, 삭제 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/107236098/193737598-63bfba4e-83fa-427d-932d-33aedd955f61.gif"> </p>
