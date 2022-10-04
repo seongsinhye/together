@@ -23,4 +23,8 @@
 
 ---
 
-## 🧷 핵심 기능
+## 🧷 시연 영상
+
+1. 회원 설문조사 참가, 포인트 상승 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/107236098/193734221-66fda3db-bd2a-406a-8922-4c37c29cbaed.gif"> </p>
