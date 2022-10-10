@@ -9,9 +9,9 @@ import java.sql.Statement;
 
 public class DBConn {
 	public static Connection getConnection() {
-		final String URL = "jdbc:mysql://ec2-3-39-230-54.ap-northeast-2.compute.amazonaws.com:3306/surveyy?useSSL=false&serverTimezone=Asia/Seoul";
-		final String USER = "root";
-		final String PASS = "vldksh1207!";
+		final String URL = "";
+		final String USER = "";
+		final String PASS = "";
 		Connection conn = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
